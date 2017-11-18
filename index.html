@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<!--
+
+Click on the the resort image to view each resort page
+
+-->
+<title>Resort</title>
+
+<meta charset="UTF-8">
+<meta name="description" content="Free Web tutorials">
+<meta name="keywords" content="HTML,CSS">
+<meta name="author" content="Girijah">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="js/sweetalert-dev.js"></script>
+<script src="js/scriptSource.js"></script>
+
+<link rel="stylesheet" href="css/sweetalert.css">
+<link rel="stylesheet" href="css/styling.css">
+
+<script>
+$(document).ready(function(){
+
+//$("#display").hide(); 
+$("aside").hide();
+
+
+
+//if wish-list added to search page display hide button
+if(localStorage.getItem('isFront')=='true'){
+//alert(localStorage.getItem('isFront'));
+$("aside").show();
+$("#btnWishList").hide();
+$("#btnHideWishList").show();
+$(".page-wrap").hide();
+}
+
+//if wish-list removed from search page display show button
+if(localStorage.getItem('isFront')=='false'){
+//alert(localStorage.getItem('isFront'));
+$("aside").hide();
+$("#btnWishList").show();
+$("#btnHideWishList").hide();
+
+}
+
+});
+
+
+</script>
+<script>
+$(function() {
+    var availableTags = [	
+	  "The Alps",
+      "Europe",
+	  "Asia",
+      "Africa",
+	  "Australia",
+      "North and Central America",
+       "South America",
+	   "South Africa",
+	   "Carribean",
+	   "Indian Ocean",
+      "Martinique",
+	  "Singapore",
+	  "Germany",
+      "France",
+	  "Italy",
+		"sailing",
+	  "swimming",
+	   "kitesurf",
+      "water skiing",
+      "tennis",
+	   "golf",
+      "scuba diving",
+	  "flying trapeze",
+	   "hiking",
+      "horse riding",
+	  "kids club",
+      "spa",   	  
+	  "3 star",
+	  "4 star",
+	  "5 star",
+		"All"
+    ];
+    $( "#criteria" ).autocomplete({
+      source: availableTags
+    });
+  });
+</script>
+
+<style>
+/*responsive background image*/
+body  {
+/*only verticle scroll bar enabled*/
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 100%;
+    height: 400px;
+	background-size: 100% 100%;   
+	 background-image: url('images/banner.jpg');
+	  background-image: url('images/Terrace.jpg');
+	 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+
+
+ /* footer .sep{
+	width:99%;
+    background-color: #0099cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+	position:relative;
+	min-height:70px;
+}*/
+</style>
+</head>
+<body onload="doShowAll()">
+
+
+<div class="bodyLayout">
+
+<div class="outerBox">
+<div class="innerBox">
+
+<!--p class="head">Resta</p-->
+<!--img src="https://www.townsvillenorthqueensland.com.au/svg/townsville-north-queensland-logo-colour.svg"/-->
+<img src="images/icon.png" alt="coconutTree" width="100" height="105"/>
+<h3>Search Resort:</h3>
+
+<form id="form1" class="form" method="post">
+<label>What are you looking for?</label>
+<input type="text" name="criteria" id="criteria" />
+<input type="button" name="search" id="search" value="Search"/>
+</form>
+
+</div>
+</div>
+
+
+<div class="optionsBar">
+<div class="optionsSubBar">
+<div class="imgWrap">
+<input type="image" src="images/destinations/editedAsia.png" id="asia" alt="asia" width="40"  height="40">
+  <p class="imgDescription">Asia</p>
+  </div>  
+  
+  <div class="imgWrap">
+  <input type="image" src="images/destinations/africa.png" id="africa" alt="africa" width="40" height="40">
+  <p class="imgDescription">Africa</p>
+  </div> 
+  
+   <div class="imgWrap">
+<input type="image" src="images/destinations/australia.png" id="australia" alt="australia" width="40" height="40">
+<p class="imgDescription">Australia</p>
+</div>  
+
+  <div class="imgWrap">
+<input type="image" src="images/destinations/europe.png" id="europe" alt="europe" width="40" height="40">
+<p class="imgDescription">Europe</p>
+</div>  
+
+  <div class="imgWrap">
+<input type="image" src="images/destinations/caribbean.png" id="caribbean" alt="caribbean" width="40" height="40">
+<p class="imgDescription">Caribbean</p>
+</div>  
+
+  <div class="imgWrap">
+<input type="image" src="images/destinations/editedNorthAmerica.png" id="northAmerica" alt="northAmerica" width="40" height="40">
+<p class="imgDescription">North America</p>
+</div>  
+
+  <div class="imgWrap">
+<input type="image" src="images/destinations/southAmerica.png" id="southAmerica" alt="southAmerica" width="40" height="40">
+<p class="imgDescription">South America</p>
+</div>
+
+</div> 
+</div>
+
+
+<div id="result">
+</div>
+
+<!--second section begin-->
+
+
+<div class="white">
+<img src="images/activities/waterskiing.png" width="7%"/>
+<img src="images/activities/horseRide.png" width="7%"/>
+<img src="images/activities/golf-2.png" width="7%"/>
+<img src="images/activities/hiking-6.png" width="7%"/>
+<img src="images/activities/kidsclub.jpg" width="7%"/>
+<img src="images/activities/scubadiving.png" width="7%"/>
+<img src="images/activities/tennis-7.png" width="7%"/>
+<img src="images/activities/flyingtrapeze.png" width="7%"/>
+<img src="images/activities/spa-1.png" width="7%"/>
+<img src="images/activities/swimming-7.png" width="7%"/>
+<img src="images/activities/sailing-1.png" width="7%"/>
+<img src="images/activities/kitesurf-6.png" width="8%"/>
+</div>
+
+
+
+<!--end-->
+
+
+<div class="page-wrap">  
+  
+</div>
+
+
+
+<div class="row">
+<div class="col-10">
+
+
+<div id="display">
+
+</div>
+
+
+
+
+</div>
+
+
+<div class="col-2">
+<aside>
+<h4>Remove From Wish-list </h4>
+	<form name=ShoppingList>
+
+		<div id="PlayArea">
+			<table>
+				<tr>
+					<td><b>Resort Name: </b><input type=text name=name id="resortInput"></td>
+				</tr>
+
+				<tr>
+					<td>					   					   
+					    <input type=button id="remove" value="Remove" >
+					  </td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="items_table">
+			<h2>My Wish-List</h2>
+			<table id=list></table>
+			<p>
+				<input type=button id="clear" value="Clear">
+					<i> * Removes all items</i>
+			</p>
+		</div>
+	</form>
+<button id="btnWishList">Get List Front</button>
+<button id="btnHideWishList">Hide Front List</button>
+
+</aside>
+</div>
+
+</div>
+
+
+
+<footer>
+<div class="sep">
+
+© Copyright 2015 Resta - All rights reserved. <br/>
+Use of this web site signifies your agreement to the terms and conditions.
+
+</div>
+</footer>
+</div>
+
+</body>
+</html>
